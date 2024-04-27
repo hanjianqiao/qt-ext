@@ -12,7 +12,7 @@ class HWIDGET_EXPORT HSwitchButton : public QWidget
     Q_OBJECT
     Q_DECLARE_PRIVATE(HSwitchButton)
 
-    Q_PROPERTY(qreal openness READ openness WRITE setOpenness)
+    Q_PROPERTY(qreal openness READ openness WRITE setOpenness NOTIFY opennessChanged)
 
 public:
     explicit HSwitchButton(QWidget *parent = nullptr);
@@ -34,6 +34,7 @@ protected:
 
 signals:
     void stateChanged(bool opened);
+    void opennessChanged(qreal value);
 
 private:
     Q_DISABLE_COPY(HSwitchButton)

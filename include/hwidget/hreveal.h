@@ -6,28 +6,26 @@
 #include <QPainter>
 #include <QPropertyAnimation>
 
+class HRevealPrivate;
+
 class HWIDGET_EXPORT HReveal : public QWidget
 {
     Q_OBJECT
-
-    Q_PROPERTY(int radius MEMBER m_radius NOTIFY radiusChanged)
+    Q_DECLARE_PRIVATE(HReveal)
+    Q_PROPERTY(int radius READ radius WRITE setRadius NOTIFY radiusChanged)
 
 public:
     explicit HReveal(QWidget *parent = nullptr);
 
     void start(int w, int h, const QPoint& center, int radius);
+    int radius() const;
+    void setRadius(int value);
 
     void paintEvent(QPaintEvent *event) override;
 
 Q_SIGNALS:
     void imageChanged();
-    void radiusChanged();
-
-private:
-    QPropertyAnimation *m_anim;
-    QPixmap m_source;
-    QPoint m_center;
-    int m_radius;
+    void radiusChanged(int value);
 
 };
 
