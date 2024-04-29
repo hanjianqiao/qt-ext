@@ -19,6 +19,11 @@ public:
 
     void setOpen(bool open);
     bool isOpen() const;
+    void setOnPixmap(const QPixmap &pixmap);
+    void setOffPixmap(const QPixmap &pixmap);
+    void setTrackColor(const QColor &color);
+    void setHandleColor(const QColor &color);
+    QSize handleIconSize() const;
 
 private:
     void setOpenness(qreal value);

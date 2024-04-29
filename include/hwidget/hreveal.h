@@ -27,6 +27,10 @@ Q_SIGNALS:
     void imageChanged();
     void radiusChanged(int value);
 
+private:
+    void init();
+    HReveal(HRevealPrivate &dd, QWidget* parent = nullptr);
+
 };
 
 #endif // HREVEAL_H
