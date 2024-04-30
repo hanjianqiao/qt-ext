@@ -12,22 +12,30 @@ class HWIDGET_EXPORT HSwitchButton : public QWidget
     Q_OBJECT
     Q_DECLARE_PRIVATE(HSwitchButton)
 
-    Q_PROPERTY(qreal openness READ openness WRITE setOpenness NOTIFY opennessChanged)
-
 public:
+    enum State{
+        Off,
+        On,
+    };
+    Q_ENUM(State)
+
     explicit HSwitchButton(QWidget *parent = nullptr);
 
+    void setState(State state);
+    State state() const;
     void setOpen(bool open);
     bool isOpen() const;
-    void setOnPixmap(const QPixmap &pixmap);
-    void setOffPixmap(const QPixmap &pixmap);
-    void setTrackColor(const QColor &color);
-    void setHandleColor(const QColor &color);
+
+    void setPixmap(const QPixmap &onPixmap, const QPixmap &offPixmap);
+    void setTrackColor(const QColor &onColor, const QColor &offColor);
+    void setTrackBorderColor(const QColor &onColor, const QColor &offColor);
+    void setHandleColor(const QColor &onColor, const QColor &offColor);
+    void setTrackHeight(int height);
+    void setHandlSizeDelta(int delta);
     QSize handleIconSize() const;
 
-private:
-    void setOpenness(qreal value);
-    qreal openness() const;
+    void setFixedSize(int w, int h);
+    void setFixedSize(const QSize &size);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
@@ -37,9 +45,11 @@ protected:
 
     HSwitchButton(HSwitchButtonPrivate &dd, QWidget* parent = nullptr);
 
+private:
+
+
 signals:
-    void stateChanged(bool opened);
-    void opennessChanged(qreal value);
+    void stateChanged(State state);
 
 private:
     Q_DISABLE_COPY(HSwitchButton)
