@@ -2476,6 +2476,7 @@ enum fa_brand_icons : uint16_t {
 
 };
 
+#ifdef FONT_AWESOME_PRO
 enum fa_pro_icons : uint16_t {
     fa_00 = 0xe467,
     fa_360_degrees = 0xe2dc,
@@ -4791,4 +4792,5 @@ enum fa_pro_icons : uint16_t {
     fa_vote_nay = 0xf771
 
 };
+#endif
 }
