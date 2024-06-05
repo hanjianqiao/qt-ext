@@ -25,4 +25,10 @@ private:
     HCryptographicHashPrivate *d;
 };
 
+class HCORE_EXPORT HHmacSha1
+{
+public:
+    static QByteArray hmacSha1(QByteArray key, QByteArray baseString);
+};
+
 #endif // HCRYPTOGRAPHICHASH_H

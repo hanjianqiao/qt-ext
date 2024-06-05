@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include <hfontawesome.h>
+#include <hwidget/hfontawesome.h>
 #include <QApplication>
 
 int main(int argc, char *argv[])

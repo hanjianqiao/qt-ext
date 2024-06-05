@@ -2,6 +2,7 @@
 #define HCORE_GLOBAL_H
 
 #include <QtCore/qglobal.h>
+#include <h_global.h>
 
 #if defined(HCORE_LIBRARY)
 #define HCORE_EXPORT Q_DECL_EXPORT

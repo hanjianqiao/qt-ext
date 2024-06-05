@@ -2,6 +2,7 @@
 #define HWIDGET_GLOBAL_H
 
 #include <QtCore/qglobal.h>
+#include <h_global.h>
 
 #if defined(HWIDGET_LIBRARY)
 #define HWIDGET_EXPORT Q_DECL_EXPORT

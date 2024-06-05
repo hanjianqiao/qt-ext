@@ -13,16 +13,12 @@ public:
     enum Edge {
         Left, Right, Top, Bottom,
     };
-    explicit HDrawer(int size, int topOffset, Edge edge, QWidget *parent);
+    explicit HDrawer(Edge edge, QWidget *parent);
 
-    void setDrawerSize(int size);
-    int drawerSize() const;
     void setInLayout(bool inLayout);
     bool inLayout() const;
     Edge edge() const;
     void stopAllAnimations();
-
-    void setContentWidget(QWidget *w);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) override;
@@ -35,14 +31,10 @@ public slots:
     void toggle();
 
 protected:
-    QWidget *m_contentWidget;
     bool m_inLayout;
-    int m_drawerSize; // width or height of drawer
-    int m_topOffset;
     Edge m_edge;
     QPropertyAnimation *m_openAnimation;
     QPropertyAnimation *m_closeAnimation;
     QWidget *m_mask;
-    QWidget *m_topSpacer;
 };
 #endif // HDRAWER_H

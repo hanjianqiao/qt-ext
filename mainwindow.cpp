@@ -2,7 +2,7 @@
 
 #include <QVBoxLayout>
 #include <QPushButton>
-#include <hfontawesome.h>
+#include <hwidget/hfontawesome.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
